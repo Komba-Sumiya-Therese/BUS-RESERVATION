@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1718487576 source:c:\users\gael nsabua\documents\c program\bus-reservation\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1718489374 source:c:\users\hp\desktop\bus-reservation\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+
