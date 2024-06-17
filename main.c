@@ -3,7 +3,7 @@
 #include <time.h>
 #include <string.h>
 
-// Définitions des structures
+// Definitions des structures
 typedef struct {
     char nom[50];
     char contact[50];
@@ -15,7 +15,7 @@ typedef struct {
 typedef struct {
     int numeroBus;
     char itineraire[50];
-    int sieges[40]; // 0: Disponible, 1: Réservé
+    int sieges[40]; // 0: Disponible, 1: ReservÃ©
 } Bus;
 
 // Prototypes des fonctions
@@ -28,7 +28,7 @@ void genererBillet(Passager passager);
 void rechercherPassager();
 void ajouterBus();
 
-// Opérations de fichiers
+// OpÃ©rations de fichiers
 void sauvegarderInfoPassager(Passager passager);
 void chargerInfoBus();
 void sauvegarderInfoBus();
@@ -88,7 +88,7 @@ void afficherMenu() {
     printf("Entrez votre choix: ");
 }
 
-// Rechercher et afficher les itinéraires des bus disponibles
+// Rechercher et afficher les itineraires des bus disponibles
 void rechercherItinerairesBus() {
     printf("\nItineraires de bus disponibles:\n");
     for (int i = 0; i < nombreBus; i++) {
@@ -96,7 +96,7 @@ void rechercherItinerairesBus() {
     }
 }
 
-// Réserver un siège pour un passager
+// Reserver un siÃ¨ge pour un passager
 void reserverSiege() {
     Passager passager;
     int numeroBus, numeroSiege;
@@ -117,7 +117,7 @@ void reserverSiege() {
             scanf("%d", &numeroSiege);
 
             if (numeroSiege < 1 || numeroSiege > 40 || bus[i].sieges[numeroSiege - 1] == 1) {
-                printf("Numero de siege invalide ou déja reserve.\n");
+                printf("Numero de siege invalide ou dï¿½ja reserve.\n");
                 return;
             }
 
@@ -128,7 +128,7 @@ void reserverSiege() {
             scanf("%s", passager.contact);
             passager.numeroSiege = numeroSiege;
             strcpy(passager.itineraireBus, bus[i].itineraire);
-            passager.codeReservation = rand() % 10000 + 1; // Code de réservation aléatoire simple
+            passager.codeReservation = rand() % 10000 + 1; // Code de rÃ©servation alÃ©atoire simple
 
             sauvegarderInfoPassager(passager);
             sauvegarderInfoBus();
@@ -140,7 +140,7 @@ void reserverSiege() {
     printf("Bus non trouve.\n");
 }
 
-// Afficher toutes les réservations existantes
+// Afficher toutes les rÃ©servations existantes
 void afficherReservations() {
     FILE *file = fopen("reservations.txt", "r");
     if (!file) {
@@ -158,7 +158,7 @@ void afficherReservations() {
     fclose(file);
 }
 
-// Rechercher un passager par nom ou code de réservation
+// Rechercher un passager par nom ou code de rÃ©servation
 void rechercherPassager() {
     FILE *file = fopen("reservations.txt", "r");
     if (!file) {
@@ -192,7 +192,7 @@ void effectuerPaiement() {
     printf("Paiement reussi via Mobile Money.\n");
 }
 
-// Générer le billet après la réservation
+// GÃ©nÃ©rer le billet aprÃ¨s la rÃ©servation
 void genererBillet(Passager passager) {
     system("cls");
     printf("\n------ Billet ------\n");
@@ -246,7 +246,7 @@ void ajouterBus() {
     scanf("%d", &nouveauBus.numeroBus);
     printf("Entrez l'itineraire du bus: ");
     scanf("%s", nouveauBus.itineraire);
-    memset(nouveauBus.sieges, 0, sizeof(nouveauBus.sieges)); // Initialiser tous les sièges à 0 (disponible)
+    memset(nouveauBus.sieges, 0, sizeof(nouveauBus.sieges)); // Initialiser tous les siÃ¨ges Ã  0 (disponible)
 
     bus[nombreBus] = nouveauBus;
     nombreBus++;
